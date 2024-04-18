@@ -5,14 +5,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 public class BaseClass {
 
@@ -20,9 +25,22 @@ public class BaseClass {
     public Logger logger;
 
     @BeforeClass
-    public void setup(String br)
+    public void setup() throws IOException//String br)
     {
-        logger= (Logger) LogManager.getLogger(this.getClass());
+
+
+        //read data from property file
+        //option1
+        ResourceBundle rb = ResourceBundle.getBundle("config");
+        rb.getString("appURL");
+        //rb.getString("adminEMAIL");
+        //rb.getString("adminPASSWORD");
+
+        //option2
+//        FileReader file = new FileReader("/home/ademiju/IdeaProjects/opencart/src/test/resources/config.properties");
+//        Properties p = new Properties();
+//        p.load(file);
+//        String url=p.getProperty("appURL");
 
 //        if (br.equalsIgnoreCase("chrome"))
 //        {
@@ -33,23 +51,33 @@ public class BaseClass {
 //        else
 //        {
 //            driver=new EdgeDriver();
+
+        logger= (Logger) LogManager.getLogger(this.getClass());
 //        }
 
-        driver=new ChromeDriver();
+        //don't display chrome is being controlled by automation test software
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+
+        driver=new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        driver.get("http://localhost/opencart/upload/index.php"); //local app url
+        driver.get(rb.getString("appURL")); //local app url ResourceBundle (option1)
+        //driver.get(rb.getString("adminEMAIL")); //from config.property file
+        //driver.get(rb.getString("adminPASSWORD")); //from config.property file
+
+        //driver.get(url); //local app url Filereader (option2)
     }
 
     public String pwd = randomAlphaNumerics();
 
-    @AfterClass
-    public void tearDown()
-    {
-        driver.close();
-    }
+//    @AfterClass
+//    public void tearDown()
+//    {
+//        driver.close();
+//    }
 
     public String random_Alphabets()
     {

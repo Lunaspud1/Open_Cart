@@ -13,8 +13,8 @@ public class TC_001_AccountRegistrationTest extends BaseClass{
     @Test
     public void test_account_Registration()
     {
-        logger.info("******** Start TC_001_AccountRegistrationTest   *************");
-        logger.debug("*******  Generating debug logs   ********");
+        logger.info("******** Start TC_001_AccountRegistrationTest   *************");  //logs
+        //logger.debug("*******  Generating debug logs   ********");
 
         HomePage hp = new HomePage(driver);
         hp.clickMyAccount_Loc();
@@ -38,9 +38,9 @@ public class TC_001_AccountRegistrationTest extends BaseClass{
         logger.info("Clicked on Continue button...");
 
         reg_page.getConfirmationMsg();
-        logger.info("Test Passed");
+        logger.info("Test Passed/Failed");
 
-        logger.info("******** Finished TC_001_AccountRegistrationTest   *************");
+        logger.info("******** Finished TC_001_AccountRegistrationTest *************");
 
 
 
