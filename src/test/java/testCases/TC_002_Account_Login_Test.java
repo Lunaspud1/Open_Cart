@@ -1,7 +1,6 @@
 package testCases;
 
-import com.beust.ah.A;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.AccountLoginPage;
@@ -9,9 +8,7 @@ import pageObjects.LogoutPage;
 import pageObjects.MyAccountPage;
 import testBase.BaseClass;
 
-import java.util.ResourceBundle;
-
-public class TC_002_AccountloginTest extends BaseClass {
+public class TC_002_Account_Login_Test extends BaseClass {
 
 
     @Test

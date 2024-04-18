@@ -6,17 +6,9 @@ import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class BaseClass {
@@ -25,7 +17,7 @@ public class BaseClass {
     public Logger logger;
 
     @BeforeClass
-    public void setup() throws IOException//String br)
+    public void setup()
     {
 
 

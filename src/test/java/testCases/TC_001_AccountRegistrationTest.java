@@ -1,7 +1,6 @@
 package testCases;
 
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import pageObjects.AccountRegistrationPage;
 import pageObjects.HomePage;

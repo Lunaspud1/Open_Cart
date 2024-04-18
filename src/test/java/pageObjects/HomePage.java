@@ -27,11 +27,11 @@ public class HomePage extends BasePage {
             driver.findElement(register_Btn_Loc).click();
         }
 
-        public void title_of_page(String title)
+        /*public void title_of_page(String title)
         {
             driver.findElement(page_title).isDisplayed();
         }
-
+*/
         public void click_Login_btn()
         {
             driver.findElement(Login_btn_loc).click();

@@ -1,7 +1,6 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -55,7 +54,7 @@ public class SearchProductPage extends BasePage {
     public void product_added_to_cart_success() {
         String actual_success_text = driver.findElement(success_text_loc).getText();
         String expected_success_text = "Success: You have added MacBook to your shopping cart!";
-        if (actual_success_text.equals(expected_success_text));
+        Assert.assertEquals(actual_success_text, (expected_success_text));
     }
 
     public void go_to_shopping_cart()

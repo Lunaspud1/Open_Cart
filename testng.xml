@@ -4,7 +4,7 @@
     <test name = "testCases">
         <classes>
             <class name = "testCases.TC_001_AccountRegistrationTest" />
-            <class name = "testCases.TC_002_AccountloginTest" />
+            <class name = "testCases.TC_002_Account_Login_Test" />
 
         </classes>
     </test>

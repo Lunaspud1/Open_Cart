@@ -3,7 +3,6 @@ package testCases;
 import org.testng.annotations.Test;
 import pageObjects.AccountLoginPage;
 import pageObjects.HomePage;
-import pageObjects.MyAccountPage;
 import pageObjects.SearchProductPage;
 import testBase.BaseClass;
 
